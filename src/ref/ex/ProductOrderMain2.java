@@ -1,9 +1,30 @@
 package ref.ex;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class ProductOrderMain2 {
-    public static void main(String[] args) {
-        ProductOrder[] orders = new ProductOrder[2];
-        orders[0] = createOrder("두부", 20000, 2);
-        orders[1] = createOrder("asd", 20000, 2);
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("입력할 주문의 개수를 입력하세요 : ");
+        int n = Integer.parseInt(bf.readLine());
+
+        ProductOrder[] orders = new ProductOrder[n];
+
+        for (int i = 0; i<n; i++){
+            System.out.println((i+1) + " 번째 주문 정보를 입력하세요.");
+            System.out.print("상품명 : ");
+            String productName = bf.readLine();
+
+            System.out.print("가 격 : ");
+            int price = Integer.parseInt(bf.readLine());
+
+            System.out.print("수 량 : ");
+            int quantity = Integer.parseInt(bf.readLine());
+
+            orders[i] = createOrder(productName, price, quantity);
+        }
 
         printOrder(orders);
         int totalAmount = getTotalAmount(orders);
