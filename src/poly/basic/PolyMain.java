@@ -1,7 +1,5 @@
 package poly.basic;
 
-import java.sql.SQLOutput;
-
 public class PolyMain {
     public static void main(String[] args) {
         //부모 변수가 부모 인스턴스 참조
