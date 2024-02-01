@@ -6,12 +6,13 @@ public class AnimalPolyMain {
         Dog dog = new Dog();
         Cat cat = new Cat();
         Caw caw = new Caw();
-        Duck duck = new Duck();
+        Animal[] animalArr = {dog, cat, caw};
 
-        soundAnimal(dog);
-        soundAnimal(cat);
-        soundAnimal(caw);
-        soundAnimal(duck);
+        for (Animal animal : animalArr) {
+            System.out.println("동물 소리 테스트 시작");
+            animal.sound(); // 각 자식 클래스에서 부모 클래스의 메서드를 오버라이딩 했기 때문에, 오버라이딩 메서드 우선으로 인해 자식 메서드가 실행됨.
+            System.out.println("동물 소리 테스트 종료");
+        }
 
     }
 
